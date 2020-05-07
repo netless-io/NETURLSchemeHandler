@@ -1,0 +1,16 @@
+PODS:
+  - NETURLSchemeHandler (0.1.0)
+
+DEPENDENCIES:
+  - NETURLSchemeHandler (from `../`)
+
+EXTERNAL SOURCES:
+  NETURLSchemeHandler:
+    :path: "../"
+
+SPEC CHECKSUMS:
+  NETURLSchemeHandler: 80943a9275099cdfdbd8434b941533e6f1abda25
+
+PODFILE CHECKSUM: 06768bb0f52378d88802c328a31abc883a8b7a35
+
+COCOAPODS: 1.8.4

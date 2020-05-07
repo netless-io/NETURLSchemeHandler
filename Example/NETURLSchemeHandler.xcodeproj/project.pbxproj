@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		2B4D286304AECE6B86583183 /* Pods_NETURLSchemeHandler_Example.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 77B92FAFDAECA0382660BEA2 /* Pods_NETURLSchemeHandler_Example.framework */; };
 		332B1232CFFD29ECA17DCD97 /* Pods_NETURLSchemeHandler_Tests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6B70B0B68F361E91E058D7E3 /* Pods_NETURLSchemeHandler_Tests.framework */; };
+		39CDD7A52464004E00A2C7BA /* 1.html in Resources */ = {isa = PBXBuildFile; fileRef = 39CDD7A42463FCC900A2C7BA /* 1.html */; };
 		6003F58E195388D20070C39A /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6003F58D195388D20070C39A /* Foundation.framework */; };
 		6003F590195388D20070C39A /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6003F58F195388D20070C39A /* CoreGraphics.framework */; };
 		6003F592195388D20070C39A /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6003F591195388D20070C39A /* UIKit.framework */; };
@@ -37,6 +38,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		39CDD7A42463FCC900A2C7BA /* 1.html */ = {isa = PBXFileReference; lastKnownFileType = text.html; path = 1.html; sourceTree = "<group>"; };
 		476C8D5BEC1A151AC15F2E55 /* Pods-NETURLSchemeHandler_Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NETURLSchemeHandler_Tests.release.xcconfig"; path = "Target Support Files/Pods-NETURLSchemeHandler_Tests/Pods-NETURLSchemeHandler_Tests.release.xcconfig"; sourceTree = "<group>"; };
 		6003F58A195388D20070C39A /* NETURLSchemeHandler_Example.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NETURLSchemeHandler_Example.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6003F58D195388D20070C39A /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -60,13 +62,13 @@
 		6B70B0B68F361E91E058D7E3 /* Pods_NETURLSchemeHandler_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_NETURLSchemeHandler_Tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		71719F9E1E33DC2100824A3D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		77B92FAFDAECA0382660BEA2 /* Pods_NETURLSchemeHandler_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_NETURLSchemeHandler_Example.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		7C203C2C66AF3B00D71B3EAC /* NETURLSchemeHandler.podspec */ = {isa = PBXFileReference; includeInIndex = 1; name = NETURLSchemeHandler.podspec; path = ../NETURLSchemeHandler.podspec; sourceTree = "<group>"; };
+		7C203C2C66AF3B00D71B3EAC /* NETURLSchemeHandler.podspec */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = NETURLSchemeHandler.podspec; path = ../NETURLSchemeHandler.podspec; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		8461AAE05892988A6A99A712 /* Pods-NETURLSchemeHandler_Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NETURLSchemeHandler_Tests.debug.xcconfig"; path = "Target Support Files/Pods-NETURLSchemeHandler_Tests/Pods-NETURLSchemeHandler_Tests.debug.xcconfig"; sourceTree = "<group>"; };
 		873B8AEA1B1F5CCA007FD442 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = Main.storyboard; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		97E39E5B838785B6FD432C0D /* Pods-NETURLSchemeHandler_Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NETURLSchemeHandler_Example.release.xcconfig"; path = "Target Support Files/Pods-NETURLSchemeHandler_Example/Pods-NETURLSchemeHandler_Example.release.xcconfig"; sourceTree = "<group>"; };
 		BADA202857DA38BE78F69139 /* Pods-NETURLSchemeHandler_Example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NETURLSchemeHandler_Example.debug.xcconfig"; path = "Target Support Files/Pods-NETURLSchemeHandler_Example/Pods-NETURLSchemeHandler_Example.debug.xcconfig"; sourceTree = "<group>"; };
-		C0E72917B3F0BD1FB1F5C97B /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; name = LICENSE; path = ../LICENSE; sourceTree = "<group>"; };
-		E303FC52894EE945829C8F89 /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; name = README.md; path = ../README.md; sourceTree = "<group>"; };
+		C0E72917B3F0BD1FB1F5C97B /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = LICENSE; path = ../LICENSE; sourceTree = "<group>"; };
+		E303FC52894EE945829C8F89 /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = net.daringfireball.markdown; name = README.md; path = ../README.md; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -132,6 +134,7 @@
 		6003F593195388D20070C39A /* Example for NETURLSchemeHandler */ = {
 			isa = PBXGroup;
 			children = (
+				39CDD7A42463FCC900A2C7BA /* 1.html */,
 				6003F59C195388D20070C39A /* NETAppDelegate.h */,
 				6003F59D195388D20070C39A /* NETAppDelegate.m */,
 				873B8AEA1B1F5CCA007FD442 /* Main.storyboard */,
@@ -193,7 +196,6 @@
 				8461AAE05892988A6A99A712 /* Pods-NETURLSchemeHandler_Tests.debug.xcconfig */,
 				476C8D5BEC1A151AC15F2E55 /* Pods-NETURLSchemeHandler_Tests.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -258,6 +260,7 @@
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
 			knownRegions = (
+				English,
 				en,
 				Base,
 			);
@@ -277,6 +280,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				39CDD7A52464004E00A2C7BA /* 1.html in Resources */,
 				873B8AEB1B1F5CCA007FD442 /* Main.storyboard in Resources */,
 				71719F9F1E33DC2100824A3D /* LaunchScreen.storyboard in Resources */,
 				6003F5A9195388D20070C39A /* Images.xcassets in Resources */,
@@ -449,7 +453,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -482,7 +486,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALIDATE_PRODUCT = YES;
@@ -497,6 +501,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "NETURLSchemeHandler/NETURLSchemeHandler-Prefix.pch";
 				INFOPLIST_FILE = "NETURLSchemeHandler/NETURLSchemeHandler-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				MODULE_NAME = ExampleApp;
 				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.demo.${PRODUCT_NAME:rfc1034identifier}";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -513,6 +518,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "NETURLSchemeHandler/NETURLSchemeHandler-Prefix.pch";
 				INFOPLIST_FILE = "NETURLSchemeHandler/NETURLSchemeHandler-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				MODULE_NAME = ExampleApp;
 				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.demo.${PRODUCT_NAME:rfc1034identifier}";
 				PRODUCT_NAME = "$(TARGET_NAME)";
