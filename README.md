@@ -20,10 +20,6 @@ it, simply add the following line to your Podfile:
 pod 'NETURLSchemeHandler'
 ```
 
-## Author
-
-leavesster, 11785335+leavesster@users.noreply.github.com
-
 ## License
 
 NETURLSchemeHandler is available under the MIT license. See the LICENSE file for more info.
