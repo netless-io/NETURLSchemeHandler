@@ -12,6 +12,8 @@
 
 @interface NETViewController ()
 @property (nonatomic, strong) WKWebView *webView;
+@property (nonatomic, strong) NSURLSession *session;
+@property (nonatomic, strong) NETURLSchemeHandler *schemeHandler;
 @end
 
 @implementation NETViewController
@@ -33,12 +35,15 @@
     //32位 CPU 支持：https://www.jianshu.com/p/fe876b9d1f7c
     [config setValue:@(1) forKey:@"allowUniversalAccessFromFileURLs"];
 #endif
-    [config setURLSchemeHandler:[[NETURLSchemeHandler alloc] init] forURLScheme:@"netless"];
+    
+    self.schemeHandler = [[NETURLSchemeHandler alloc] initWithScheme:@"netless" directory:NSTemporaryDirectory()];
+    [config setURLSchemeHandler:self.schemeHandler forURLScheme:@"netless"];
     
     WKWebView *webview = [[WKWebView alloc] initWithFrame:self.view.bounds configuration:config];
     self.webView = webview;
     [self.view addSubview:webview];
 
+    [self downloadResources];
     [self loadHTML];
 }
 
@@ -48,6 +53,62 @@
     NSURL *url = [NSURL fileURLWithPath:filePath];
     NSURLRequest *request = [NSURLRequest requestWithURL:url];
     [self.webView loadRequest:request];
+}
+
+#pragma mark - Donwload
+
+- (NSURLSession *)session
+{
+    if (!_session) {
+        _session = [NSURLSession sessionWithConfiguration:[NSURLSessionConfiguration defaultSessionConfiguration] delegate:(id<NSURLSessionDelegate>)self delegateQueue:nil];
+    }
+    return _session;
+}
+
+- (void)downloadResources
+{
+    NSArray *resources = @[@"netless://white-pan.oss-cn-shanghai.aliyuncs.com/101/media5.wav", @"netless://white-pan.oss-cn-shanghai.aliyuncs.com/101/info.json", @"netless://white-pan.oss-cn-shanghai.aliyuncs.com/101/note1.xml", @"netless://white-pan.oss-cn-shanghai.aliyuncs.com/101/oceans.mp4", @"netless://white-pan.oss-cn-shanghai.aliyuncs.com/101/image/Rectangle.png", @"netless://white-pan.oss-cn-shanghai.aliyuncs.com/101/image/alin-rusu-1239275-unsplash_opt.jpg"];
+    
+    for (NSString *url in resources) {
+        NSURLRequest *request = [NSURLRequest requestWithURL:[NSURL URLWithString:url]];
+        request = [self.schemeHandler httpRequest:request];
+        [self downloadResource:request];
+    }
+}
+
+- (void)downloadResource:(NSURLRequest *)request
+{
+    NSURLSessionDownloadTask *task = [self.session downloadTaskWithRequest:request completionHandler:^(NSURL * _Nullable location, NSURLResponse * _Nullable response, NSError * _Nullable error) {
+        
+        if (error) {
+            NSLog(@"request %@ failed error:%@", request, error);
+            return;
+        }
+        
+        NSHTTPURLResponse *res = (NSHTTPURLResponse *)response;
+        if (![res isKindOfClass:[NSHTTPURLResponse class]]) {
+            return;
+        }
+        
+        if (res.statusCode < 200 || res.statusCode >= 400) {
+            NSLog(@"response error: %@", response);
+            return;
+        }
+        
+        
+        NSError *fileError = nil;
+        NSURL *targetPath = [NSURL fileURLWithPath:[self.schemeHandler filePath:request]];
+
+        
+        BOOL result = [NETSchemeFileHelper copyItemAtURL:location toURL:targetPath error:&fileError];
+        
+        if (error || !result) {
+            NSLog(@"copy failed, error: %@", fileError);
+        } else {
+            NSLog(@"request %@ download complete. move to %@", request, targetPath.absoluteString);
+        }
+    }];
+    [task resume];
 }
 
 
