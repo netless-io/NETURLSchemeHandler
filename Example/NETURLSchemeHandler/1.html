@@ -7,25 +7,22 @@
     <script type="text/javascript">
         function actionA() {
             console.log("clc");
-            fetch("netless://fetch.c");
+            fetch("netless://white-pan.oss-cn-shanghai.aliyuncs.com/101/info.json").then(res => res.json()).then(json => console.log(json)).catch(e => console.error(e))
+            fetch("netless://white-pan.oss-cn-shanghai.aliyuncs.com/101/note1.xml").then(res => res.text()).then(json => console.log(json)).catch(e => console.error(e));
         }
     </script>
 </head>
 <body>
-<svg style="width: 960pt; height: 540pt; overflow: visible;">
-    <defs><clipPath id="clippath-1-l8-"><path d="M 0 0 L 1280 0 L 1280 720 L 0 720 Z" fill="none" height="540pt" width="960pt" stroke="rgba(255, 255, 255, 0)" stroke-width="0.5pt" stroke-dasharray="0"></path></clipPath>
-    </defs>
-    <image preserveAspectRatio="none" xlink:href="netless://svg.image" href="netless://svg.image">
-    </image>
-    <path d="M 0 0 L 1280 0 L 1280 720 L 0 720 Z" fill="none" height="540pt" width="960pt" stroke="rgba(255, 255, 255, 0)" stroke-width="0.5pt" stroke-dasharray="0"></path>
-</svg>
-<img src="netless://image"/>
 <video controls width="250">
-    <source src="netless://video.webm"
-            type="video/webm">
-    <source src="netless://video.mp4"
+    <source src="netless://white-pan.oss-cn-shanghai.aliyuncs.com/101/oceans.mp4"
             type="video/mp4">
 </video>
-<audio src="netless://audio"></audio>
+<svg style="width:96px; height:54px;">
+    <image x="0" y="0" height="54" width="96" preserveAspectRatio="none" xlink:href="netless://white-pan.oss-cn-shanghai.aliyuncs.com/101/image/Rectangle.png" href="netless://white-pan.oss-cn-shanghai.aliyuncs.com/101/image/Rectangle.png">
+    </image>
+</svg>
+<img style="width:60px;height:150px" src="netless://white-pan.oss-cn-shanghai.aliyuncs.com/101/image/alin-rusu-1239275-unsplash_opt.jpg"/>
+<audio controls style="width:120px;height:60px" src="netless://white-pan.oss-cn-shanghai.aliyuncs.com/101/media5.wav"></audio>
+<button style="width:200px;height:60px" onclick="actionA()">click</button>
 </body>
 </html>
