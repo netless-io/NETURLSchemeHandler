@@ -22,6 +22,14 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface NETURLSchemeHandler : NSObject<WKURLSchemeHandler>
 
+@property (nonatomic, readonly, copy) NSString *scheme;
+@property (nonatomic, readonly, copy) NSString *directory;
+
+- (instancetype)initWithScheme:(NSString *)scheme directory:(NSString *)dir;
+
+- (NSString *)filePath:(NSURLRequest *)request;
+- (NSURLRequest *)httpRequest:(NSURLRequest *)originRequest;
+
 @end
 
 NS_ASSUME_NONNULL_END

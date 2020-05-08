@@ -68,11 +68,12 @@
     return self;
 }
 
-#pragma mark - Public
-
-- (void)registerCustomSchemeHandler:(NSString *)customHandler
+- (instancetype)initWithScheme:(NSString *)scheme directory:(NSString *)dir
 {
-    _scheme = customHandler;
+    self = [self init];
+    _scheme = scheme;
+    _directory = dir;
+    return self;
 }
 
 #pragma mark -
@@ -81,10 +82,17 @@
 
 - (NSString *)filePath:(NSURLRequest *)request {
     NSString *urlString = request.URL.absoluteString;
-    NSString *prefix = [self.scheme stringByAppendingString:@"://"];
-    urlString = [urlString stringByReplacingOccurrencesOfString:prefix withString:@"" options:NSCaseInsensitiveSearch range:NSRangeFromString(prefix)];
-    NSURL *filePath = [NSURL fileURLWithPath:[self.directory stringByAppendingPathComponent:urlString]];
-    return filePath.absoluteString;
+    
+    
+    NSArray<NSString *>* prefixs = @[[self.scheme stringByAppendingString:@"://"], @"https://", @"http://"];
+    
+    for (NSString *prefix in prefixs) {
+        if ([urlString hasPrefix:prefix]) {
+            urlString = [urlString stringByReplacingOccurrencesOfString:prefix withString:@"" options:NSCaseInsensitiveSearch range:NSMakeRange(0, prefix.length)];
+        }
+    }
+    
+    return [NSURL fileURLWithPath:[self.directory stringByAppendingPathComponent:urlString]].path;
 }
 
 - (NSURLRequest *)httpRequest:(NSURLRequest *)originRequest
@@ -92,15 +100,17 @@
     NSMutableURLRequest *request = [originRequest mutableCopy];
 
     NSString *urlString = request.URL.absoluteString;
-    urlString = [urlString stringByReplacingCharactersInRange:NSMakeRange(0, self.scheme.length) withString:@"https"];
+    if ([urlString hasPrefix:self.scheme]) {
+        urlString = [urlString stringByReplacingCharactersInRange:NSMakeRange(0, self.scheme.length) withString:@"https"];
+    }
     request.URL = [NSURL URLWithString:urlString];
     
     return request;
 }
 
-- (BOOL)resourcesExist:(NSString *)path
+- (BOOL)resourcesExist:(NSString *)filePath
 {
-    return [[NSFileManager defaultManager] fileExistsAtPath:path];
+    return [[NSFileManager defaultManager] fileExistsAtPath:filePath];
 }
 
 #pragma mark - HTTP
