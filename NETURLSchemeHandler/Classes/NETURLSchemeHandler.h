@@ -10,6 +10,16 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
+@interface NETSchemeFileHelper : NSObject
+
+/**
+ copy item, remove dstURL if exist, and create directory for dstURL
+ */
++ (BOOL)copyItemAtURL:(NSURL *)srcURL toURL:(NSURL *)dstURL error:(NSError **)error;
+
+@end
+
+
 @interface NETURLSchemeHandler : NSObject<WKURLSchemeHandler>
 
 @end

@@ -7,6 +7,47 @@
 
 #import "NETURLSchemeHandler.h"
 
+@interface NETSchemeFileHelper()
+
+@end
+
+@implementation NETSchemeFileHelper
+
++ (BOOL)copyItemAtURL:(NSURL *)srcURL toURL:(NSURL *)dstURL error:(NSError **)error
+{
+    NSFileManager *defaultManager = [NSFileManager defaultManager];
+    NSError *fileError = nil;
+    
+    if ([defaultManager fileExistsAtPath:dstURL.path]) {
+        [defaultManager removeItemAtURL:dstURL error:&fileError];
+    }
+
+    if (fileError) {
+        *error = fileError;
+        return NO;
+    }
+    
+    NSURL *directoryURL = [dstURL URLByDeletingLastPathComponent];
+    if (![defaultManager fileExistsAtPath:directoryURL.absoluteString]) {
+        BOOL result = [self createDirectory:directoryURL error:&fileError];
+        if (!result) {
+            *error = fileError;
+            return result;
+        }
+    }
+    
+    return [defaultManager moveItemAtURL:srcURL toURL:dstURL error:error];
+}
+
++ (BOOL)createDirectory:(NSURL *)path error:(NSError **)error
+{
+    NSFileManager *defaultManager = [NSFileManager defaultManager];
+    return [defaultManager createDirectoryAtURL:path withIntermediateDirectories:YES attributes:@{} error:error];
+}
+
+@end
+
+
 @interface NETURLSchemeHandler ()
 @property (nonatomic, copy) NSString *scheme;
 @property (nonatomic, copy) NSString *directory;
