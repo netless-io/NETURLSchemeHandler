@@ -154,7 +154,7 @@
     NSString *filePath = [self filePath:request];
     if ([self resourcesExist:filePath]) {
         NSData *data = [[NSFileManager defaultManager] contentsAtPath:filePath];
-        NSURLResponse *response = [[NSURLResponse alloc] initWithURL:request.URL MIMEType:[[self class] mimeTypeForData:data] expectedContentLength:data.length textEncodingName:nil];
+        NSHTTPURLResponse *response = [[NSHTTPURLResponse alloc] initWithURL:request.URL statusCode:200 HTTPVersion:@"HTTP/1.1" headerFields:nil];
         [urlSchemeTask didReceiveResponse:response];
         [urlSchemeTask didReceiveData:data];
         [urlSchemeTask didFinish];
