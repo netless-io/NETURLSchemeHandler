@@ -45,6 +45,9 @@
 
     [self downloadResources];
     [self loadHTML];
+    
+    UIBarButtonItem *barItem = [[UIBarButtonItem alloc] initWithTitle:@"reload" style:UIBarButtonItemStylePlain target:self.webView action:@selector(reload)];
+    self.navigationItem.rightBarButtonItem = barItem;
 }
 
 - (void)loadHTML
