@@ -154,7 +154,16 @@
     NSString *filePath = [self filePath:request];
     if ([self resourcesExist:filePath]) {
         NSData *data = [[NSFileManager defaultManager] contentsAtPath:filePath];
-        NSHTTPURLResponse *response = [[NSHTTPURLResponse alloc] initWithURL:request.URL statusCode:200 HTTPVersion:@"HTTP/1.1" headerFields:nil];
+
+        NSURLResponse *response;
+        // js fetch need http status code
+        if ([[filePath pathExtension] isEqualToString:@"json"] || [[filePath pathExtension] isEqualToString:@"xml"]) {
+            response = [[NSHTTPURLResponse alloc] initWithURL:request.URL statusCode:200 HTTPVersion:@"HTTP/1.1" headerFields:nil];
+        } else {
+            NSString *mimeType = [[self class] mimeTypeForData:data];
+            response = [[NSURLResponse alloc] initWithURL:request.URL MIMEType:mimeType expectedContentLength:data.length textEncodingName:nil];
+        }
+        
         [urlSchemeTask didReceiveResponse:response];
         [urlSchemeTask didReceiveData:data];
         [urlSchemeTask didFinish];
