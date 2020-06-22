@@ -19,7 +19,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 @end
 
-
+API_AVAILABLE(macos(10.13), ios(11.0))
 @interface NETURLSchemeHandler : NSObject<WKURLSchemeHandler>
 
 @property (nonatomic, readonly, copy) NSString *scheme;
