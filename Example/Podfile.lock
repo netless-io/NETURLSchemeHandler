@@ -1,5 +1,5 @@
 PODS:
-  - NETURLSchemeHandler (0.1.0)
+  - NETURLSchemeHandler (0.1.4)
 
 DEPENDENCIES:
   - NETURLSchemeHandler (from `../`)
@@ -9,8 +9,8 @@ EXTERNAL SOURCES:
     :path: "../"
 
 SPEC CHECKSUMS:
-  NETURLSchemeHandler: 80943a9275099cdfdbd8434b941533e6f1abda25
+  NETURLSchemeHandler: cbcc8d9903f61475cdc78b0cba4c4338b97da269
 
 PODFILE CHECKSUM: 06768bb0f52378d88802c328a31abc883a8b7a35
 
-COCOAPODS: 1.8.4
+COCOAPODS: 1.9.3

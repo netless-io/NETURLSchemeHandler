@@ -27,6 +27,9 @@ API_AVAILABLE(macos(10.13), ios(11.0))
 
 - (instancetype)initWithScheme:(NSString *)scheme directory:(NSString *)dir;
 
+- (void)stop;
+- (void)restart;
+
 - (NSString *)filePath:(NSURLRequest *)request;
 - (NSURLRequest *)httpRequest:(NSURLRequest *)originRequest;
 

@@ -54,6 +54,7 @@
 
 @property (nonatomic, strong) NSURLSession *session;
 @property (nonatomic, strong) NSHashTable *hashTable;
+@property (nonatomic, assign) BOOL disable;
 @end
 
 @implementation NETURLSchemeHandler
@@ -77,7 +78,7 @@
 }
 
 #pragma mark -
-#pragma mark - Private
+#pragma mark - Request
 #pragma mark -
 
 - (NSString *)filePath:(NSURLRequest *)request {
@@ -113,7 +114,17 @@
     return [[NSFileManager defaultManager] fileExistsAtPath:filePath];
 }
 
-#pragma mark - HTTP
+#pragma mark - Private
+- (void)stop
+{
+    self.disable = YES;
+}
+
+- (void)restart
+{
+    self.disable = NO;
+}
+
 + (NSString *)mimeTypeForData:(NSData *)data {
     uint8_t c;
     [data getBytes:&c length:1];
@@ -150,6 +161,9 @@
 #pragma mark - WKURLSchemeHandler
 - (void)webView:(WKWebView *)webView startURLSchemeTask:(id <WKURLSchemeTask>)urlSchemeTask
 {
+    if (self.disable) {
+        return;
+    }
     NSURLRequest *request = urlSchemeTask.request;
     NSString *filePath = [self filePath:request];
     if ([self resourcesExist:filePath]) {
