@@ -64,7 +64,7 @@
     self = [super init];
     _scheme = @"netless";
     _directory = NSTemporaryDirectory();
-    _session = [NSURLSession sessionWithConfiguration:[NSURLSessionConfiguration defaultSessionConfiguration] delegate:(id<NSURLSessionDelegate>)self delegateQueue:nil];
+    _session = [NSURLSession sessionWithConfiguration:[NSURLSessionConfiguration defaultSessionConfiguration]];
     _hashTable = [NSHashTable hashTableWithOptions:NSPointerFunctionsWeakMemory];
     return self;
 }
