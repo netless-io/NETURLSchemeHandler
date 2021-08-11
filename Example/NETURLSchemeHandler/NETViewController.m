@@ -26,6 +26,7 @@
     self.navigationItem.rightBarButtonItem = item;
 
     WKWebViewConfiguration *config = [[WKWebViewConfiguration alloc] init];
+    config.allowsInlineMediaPlayback = YES;
     
     config.mediaTypesRequiringUserActionForPlayback = WKAudiovisualMediaTypeNone;
 #if defined(__LP64__) && __LP64__
